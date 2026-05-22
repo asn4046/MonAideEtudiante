@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MonAideEtudiante — Paris Nanterre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+ --bleu:#2563eb;
+ --bleu-dark:#1a4bb8;
+ --bleu-pale:#eff6ff;
+ --bleu-light:#93c5fd;
+ --text:#111;
+ --muted:#6b7280;
+ --border:#e5e7eb;
+ --surface:#f6f4f1;
+ --white:#fff;
+ --green:#15803d;
+ --green-bg:#f0fdf4;
+ --green-border:#86efac;
+ --gray-bg:#f9fafb;
+ --gray-border:#e5e7eb;
+}
+
+body{
+ font-family:'Plus Jakarta Sans',sans-serif;
+ background:var(--surface);
+ background-image:
+ radial-gradient(circle at 20% 50%, rgba(37,99,235,0.04) 0%, transparent 50%),
+ radial-gradient(circle at 80% 10%, rgba(37,99,235,0.03) 0%, transparent 40%),
+ url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+ min-height:100vh;
+ color:var(--text);
+}
+
+header{
+ background:linear-gradient(135deg, var(--bleu) 0%, #1a4bb8 100%);
+ padding:0 2.5rem;
+ height:68px;
+ display:flex;align-items:center;justify-content:space-between;
+ position:relative;overflow:hidden;
+ box-shadow:0 4px 20px rgba(37,99,235,0.35);
+}
+header::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.04);right:-60px;top:-110px;}
+header::after{content:'';position:absolute;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,0.05);right:150px;bottom:-70px;}
+
+.header-left{display:flex;align-items:center;gap:18px;position:relative;z-index:1;}
+.logo-nanterre{height:34px;filter:brightness(0) invert(1);opacity:0.9;}
+.header-divider{width:1px;height:28px;background:rgba(255,255,255,0.22);}
+.app-name{font-family:'Unbounded',sans-serif;font-size:.9rem;font-weight:700;color:white;letter-spacing:-.3px;}
+.header-badge{position:relative;z-index:1;font-size:11px;color:rgba(255,255,255,.8);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:5px 14px;border-radius:999px;font-weight:500;}
+
+.hero-band{
+ background:linear-gradient(150deg, #0f2d6e 0%, var(--bleu-dark) 40%, #0e2660 100%);
+ padding:3rem 2.5rem 5rem;
+ position:relative;overflow:hidden;
+}
+.hero-band::before{
+ content:'';
+ position:absolute;inset:0;
+ background-image:url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+ pointer-events:none;
+}
+.hero-band::after{
+ content:'2026';
+ font-family:'Unbounded',sans-serif;font-size:10rem;font-weight:900;
+ color:rgba(255,255,255,0.045);
+ position:absolute;right:-20px;bottom:-30px;line-height:1;pointer-events:none;
+ letter-spacing:-4px;
+}
+.hero-inner{max-width:780px;margin:0 auto;position:relative;z-index:1;}
+.hero-text{}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:1rem;
+ background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);padding:5px 14px;border-radius:999px;}
+.eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--bleu-light);box-shadow:0 0 6px var(--bleu-light);}
+
+h1{font-family:'Unbounded',sans-serif;font-size:clamp(1.6rem,4vw,2.5rem);font-weight:900;color:white;line-height:1.12;letter-spacing:-1.5px;margin-bottom:.75rem;
+ text-shadow:0 2px 20px rgba(0,0,0,0.2);}
+h1 em{font-style:normal;color:white;}
+.hero-sub{font-size:14.5px;color:rgba(255,255,255,.55);line-height:1.7;max-width:480px;font-weight:300;margin-top:.25rem;}
+.hero-sub strong{color:rgba(255,255,255,.8);font-weight:500;font-style:italic;}
+
+main{max-width:780px;margin:0 auto;padding:0 1.5rem 5rem;}
+
+.form-card{
+ background:var(--white);
+ border:1px solid rgba(37,99,235,0.1);
+ border-radius:24px;
+ padding:2.5rem;
+ margin-top:-2rem;
+ box-shadow:0 20px 60px rgba(37,99,235,0.12),0 4px 16px rgba(0,0,0,0.06);
+ animation:cardEntrance .5s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes cardEntrance{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.mascot-row{
+ display:flex;align-items:center;gap:16px;
+ background:linear-gradient(135deg,var(--bleu-pale),#f0f7ff);
+ border:1.5px solid var(--bleu-light);
+ border-radius:16px;
+ padding:16px 20px;
+ margin-bottom:2rem;
+ box-shadow:0 2px 12px rgba(37,99,235,0.06);
+}
+.mascot-face{font-size:36px;flex-shrink:0;line-height:1;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1));}
+.mascot-text{font-size:13px;color:#1e3a8a;line-height:1.6;}
+.mascot-text strong{font-weight:600;color:var(--bleu);}
+
+.section-label{
+ font-size:10.5px;font-weight:700;letter-spacing:2.5px;
+ text-transform:uppercase;color:var(--bleu);
+ margin-bottom:1.25rem;
+ display:flex;align-items:center;gap:10px;
+}
+.section-label .sl-icon{font-size:14px;}
+.section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--bleu-light),transparent);}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem 1.5rem;}
+@media(max-width:560px){.form-grid{grid-template-columns:1fr;}}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+
+label{font-size:12px;font-weight:600;color:var(--text);letter-spacing:.1px;display:flex;align-items:center;gap:5px;}
+label .lbl-emoji{font-size:13px;}
+
+.input-wrap{position:relative;}
+.input-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;display:flex;align-items:center;}
+
+input[type="text"],select{
+ width:100%;height:48px;padding:0 14px 0 40px;
+ border:1.5px solid var(--border);border-radius:12px;
+ font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--text);
+ background:var(--white);transition:border-color .2s,box-shadow .2s,background .2s;
+ outline:none;appearance:none;
+}
+input:focus,select:focus{border-color:var(--bleu);box-shadow:0 0 0 4px rgba(37,99,235,0.09);background:#fff;}
+input:hover:not(:focus),select:hover:not(:focus){border-color:#d1d5db;}
+input.err,select.err{border-color:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,0.08);}
+
+.suffix-wrap{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--muted);font-weight:500;pointer-events:none;}
+select{cursor:pointer;padding-right:34px;}
+.sel-arrow{position:absolute;right:11px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--muted);}
+
+.err-msg{font-size:11px;color:#ef4444;min-height:14px;display:flex;align-items:center;gap:4px;opacity:0;transform:translateY(-3px);transition:opacity .18s,transform .18s;font-weight:500;}
+.err-msg.show{opacity:1;transform:translateY(0);}
+
+.divider{border:none;border-top:1px solid var(--border);margin:2rem 0;}
+
+.btn-cta{
+ width:100%;height:58px;
+ background:linear-gradient(135deg, var(--bleu) 0%, #1a4bb8 100%);
+ color:white;border:none;border-radius:16px;
+ font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;
+ cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;
+ transition:all .2s cubic-bezier(.22,1,.36,1);
+ box-shadow:0 8px 24px rgba(37,99,235,0.35),0 2px 6px rgba(37,99,235,0.2);
+ position:relative;overflow:hidden;
+}
+.btn-cta::before{
+ content:'';position:absolute;inset:0;
+ background:linear-gradient(135deg,rgba(255,255,255,0.12) 0%,transparent 50%);
+}
+.btn-cta::after{
+ content:'';position:absolute;
+ top:-50%;left:-60%;width:40%;height:200%;
+ background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);
+ transform:skewX(-20deg);
+ transition:left .5s;
+}
+.btn-cta:hover::after{left:130%;}
+.btn-cta:hover{background:linear-gradient(135deg,#2563eb 0%,var(--bleu-dark) 100%);box-shadow:0 12px 32px rgba(37,99,235,0.45),0 4px 10px rgba(37,99,235,0.25);transform:translateY(-1px);}
+.btn-cta:active{transform:scale(0.99) translateY(0);}
+.btn-emoji{font-size:18px;transition:transform .25s;}
+.btn-cta:hover .btn-emoji{transform:rotate(-15deg) scale(1.2);}
+
+#results{display:none;margin-top:2.5rem;}
+#results.show{display:block;}
+
+.score-row{
+ display:flex;align-items:center;gap:16px;
+ padding:22px 24px;
+ background:linear-gradient(135deg,#fff,#f0f7ff);
+ border:1.5px solid rgba(37,99,235,0.15);
+ border-radius:18px;
+ margin-bottom:1.5rem;
+ box-shadow:0 4px 20px rgba(37,99,235,0.07);
+}
+.score-mascot{font-size:44px;flex-shrink:0;line-height:1;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.15));}
+.score-info{flex:1;}
+.score-title{font-family:'Unbounded',sans-serif;font-size:.95rem;font-weight:700;color:var(--text);letter-spacing:-.3px;margin-bottom:3px;}
+.score-sub{font-size:12px;color:var(--muted);line-height:1.4;}
+.score-badge{
+ display:flex;flex-direction:column;align-items:center;
+ background:linear-gradient(135deg,var(--bleu-pale),#dbeafe);
+ border:1.5px solid var(--bleu-light);
+ border-radius:14px;padding:12px 18px;flex-shrink:0;text-align:center;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+}
+.score-count{font-family:'Unbounded',sans-serif;font-size:1.6rem;font-weight:900;color:var(--bleu);line-height:1;}
+.score-label{font-size:10px;color:#1e3a8a;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-top:2px;}
+
+.aide-list{display:flex;flex-direction:column;gap:10px;}
+
+.aide-card{
+ display:flex;align-items:flex-start;gap:14px;
+ padding:16px 18px;
+ border-radius:14px;border:1.5px solid transparent;
+ animation:cardUp .4s cubic-bezier(.22,1,.36,1) both;
+ transition:transform .15s,box-shadow .15s;
+}
+.aide-card:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,0.07);}
+@keyframes cardUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+.aide-card.ok{background:linear-gradient(135deg,var(--green-bg),#f0fdf4);border-color:var(--green-border);box-shadow:0 2px 8px rgba(21,128,61,0.06);}
+.aide-card.ko{background:linear-gradient(135deg,var(--gray-bg),#f9fafb);border-color:var(--gray-border);}
+
+.aide-avatar{
+ width:38px;height:38px;border-radius:50%;
+ display:flex;align-items:center;justify-content:center;
+ font-size:18px;line-height:1;flex-shrink:0;margin-top:1px;
+}
+.ok .aide-avatar{background:#dcfce7;}
+.ko .aide-avatar{background:#f3f4f6;}
+
+.aide-content{flex:1;}
+.aide-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:3px;}
+.aide-name{font-size:13px;font-weight:600;line-height:1.35;}
+.ok .aide-name{color:var(--green);}
+.ko .aide-name{color:var(--muted);}
+.aide-amount{
+ font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;
+ white-space:nowrap;flex-shrink:0;
+ padding:3px 8px;border-radius:6px;
+}
+.ok .aide-amount{background:#dcfce7;color:var(--green);}
+.ko .aide-amount{background:#f3f4f6;color:#9ca3af;}
+
+.aide-detail{font-size:12px;color:var(--muted);line-height:1.55;}
+.ok .aide-detail{color:#166534cc;}
+.aide-quip{font-size:11px;font-style:italic;color:var(--muted);margin-top:3px;opacity:.75;}
+.ok .aide-quip{color:#15803d99;}
+
+.aide-link{
+ display:inline-flex;align-items:center;gap:4px;
+ font-size:11px;font-weight:600;margin-top:7px;
+ text-decoration:none;border-radius:6px;padding:3px 8px;
+ transition:opacity .15s;
+}
+.ok .aide-link{color:var(--green);background:#dcfce7;}
+.ko .aide-link{color:var(--muted);background:#f3f4f6;pointer-events:none;}
+.aide-link:hover{opacity:.75;}
+
+.disclaimer{
+ margin-top:1.25rem;padding:14px 18px;
+ background:var(--bleu-pale);
+ border-radius:12px;border-left:3px solid var(--bleu-light);
+ font-size:12px;color:#1e3a8a;line-height:1.65;
+ display:flex;gap:12px;align-items:flex-start;
+}
+.disclaimer-icon{font-size:20px;flex-shrink:0;margin-top:-1px;}
+.disclaimer a{color:var(--bleu);font-weight:600;}
+
+.score-pill{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:600;
+ padding:2px 8px;border-radius:999px;margin-bottom:4px;letter-spacing:.2px;}
+.score-vert{background:#dcfce7;color:#15803d;}
+.score-orange{background:#fef9c3;color:#92400e;}
+.score-rouge{background:#fee2e2;color:#b91c1c;}
+
+.form-group{display:flex;flex-direction:column;gap:5px;}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.75rem;}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--muted);background:rgba(255,255,255,.85);border:1px solid rgba(37,99,235,0.12);padding:6px 14px;border-radius:999px;
+ box-shadow:0 1px 4px rgba(0,0,0,0.06);backdrop-filter:blur(4px);}
+.chip-dot{width:5px;height:5px;border-radius:50%;background:var(--bleu-light);box-shadow:0 0 4px var(--bleu-light);}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="header-left">
+ <img class="logo-nanterre" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Logo_Universit%C3%A9_Paris-Nanterre.svg/315px-Logo_Universit%C3%A9_Paris-Nanterre.svg.png" alt="Université Paris Nanterre">
+ <div class="header-divider"></div>
+ <span class="app-name">MonAideEtudiante</span>
+ </div>
+ <span class="header-badge">Simulateur 2026</span>
+</header>
+
+<div class="hero-band">
+ <div class="hero-inner">
+ <p class="eyebrow"><span class="eyebrow-dot"></span>Aides étudiantes 2025–2026</p>
+ <h1>Découvre les aides<br>auxquelles tu as <em>droit</em></h1>
+ <p class="hero-sub">Réponds au formulaire pour voir rapidement les aides auxquelles tu peux prétendre.</p>
+ </div>
+</div>
+
+<main>
+<div class="form-card">
+
+ <div class="mascot-row">
+ <span class="mascot-face"></span>
+ <p class="mascot-text">
+ Prends 30 secondes pour répondre a ce questionnaire, et découvre les aides auquelles tu es éligible.
+ </p>
+ </div>
+
+ <p class="section-label"><span class="sl-icon"></span> Étape 1 — Ton profil</p>
+ <div class="form-grid">
+
+ <div class="form-group">
+ <label for="age"><span class="lbl-emoji"></span> Ton âge</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+ <input type="text" id="age" placeholder="ex : 21" inputmode="numeric">
+ <span class="suffix-wrap">ans</span>
+ </div>
+ <p class="err-msg" id="err-age"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-age-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="nationalite"><span class="lbl-emoji"></span> Nationalité</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+ <select id="nationalite">
+ <option value="">Sélectionne…</option>
+ <option value="fr"> Française</option>
+ <option value="ue"> Européenne (UE)</option>
+ <option value="hors-ue"> Hors UE — boursier CROUS</option>
+ <option value="hors-ue-nb"> Hors UE — non boursier</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-nat"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-nat-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="statut"><span class="lbl-emoji"></span> Ton statut</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+ <select id="statut" onchange="toggleStatutFields()">
+ <option value="">Sélectionne…</option>
+ <option value="etudiant"> Étudiant·e</option>
+ <option value="alternant"> Alternant·e</option>
+ <option value="apprenti"> Apprenti·e</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-statut"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-statut-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="niveau"><span class="lbl-emoji"></span> Niveau d'études</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+ <select id="niveau">
+ <option value="">Sélectionne…</option>
+ <option value="bac1">Bac+1 / Licence 1</option>
+ <option value="bac2">Bac+2 / Licence 2 / BTS</option>
+ <option value="bac3">Bac+3 / Licence 3</option>
+ <option value="master">Master</option>
+ <option value="doctorat">Doctorat</option>
+ <option value="autre">Autre</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-niveau"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-niveau-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="mention"><span class="lbl-emoji"></span> Mention au bac</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+ <select id="mention">
+ <option value="">Sélectionne…</option>
+ <option value="tb"> Très bien</option>
+ <option value="b"> Bien</option>
+ <option value="ab"> Assez bien</option>
+ <option value="aucune"> Sans mention / passable</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-mention"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-mention-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="ville-etude"><span class="lbl-emoji"></span> Ville d'études (+ code postal)</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+ <input type="text" id="ville-etude" placeholder="ex : Paris 75001">
+ </div>
+ <p class="err-msg" id="err-ville-etude"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-ville-etude-txt"></span></p>
+ </div>
+
+ </div>
+
+ <hr class="divider">
+
+ <p class="section-label"><span class="sl-icon"></span> Étape 2 — Situation familiale</p>
+ <div class="form-grid">
+
+ <div class="form-group">
+ <label for="foyer"><span class="lbl-emoji"></span> Rattaché·e au foyer fiscal des parents ?</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+ <select id="foyer" onchange="toggleFoyerFields()">
+ <option value="">Sélectionne…</option>
+ <option value="oui"> Oui</option>
+ <option value="non"> Non — je suis fiscalement indépendant·e</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-foyer"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-foyer-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="revenu-foyer"><span class="lbl-emoji"></span> Revenu fiscal de référence du foyer</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></span>
+ <select id="revenu-foyer">
+ <option value="">Sélectionne une tranche…</option>
+ <option value="t1">Moins de 10 000 €</option>
+ <option value="t2">10 000 – 25 000 €</option>
+ <option value="t3">25 000 – 40 000 €</option>
+ <option value="t4">40 000 – 60 000 €</option>
+ <option value="t5">Plus de 60 000 €</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-revenu-foyer"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-revenu-foyer-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="nb-charge"><span class="lbl-emoji"></span> Personnes dans le foyer fiscal</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+ <input type="text" id="nb-charge" placeholder="ex : 4" inputmode="numeric">
+ <span class="suffix-wrap">pers.</span>
+ </div>
+ <p class="err-msg" id="err-nb-charge"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-nb-charge-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="parents-ensemble"><span class="lbl-emoji"></span> Tes parents vivent-ils ensemble ?</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+ <select id="parents-ensemble">
+ <option value="">Sélectionne…</option>
+ <option value="oui"> Oui</option>
+ <option value="non"> Non (séparés / divorcés)</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-parents-ensemble"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-parents-ensemble-txt"></span></p>
+ </div>
+
+ <div class="form-group" id="bloc-revenu-perso" style="display:none">
+ <label for="revenu"><span class="lbl-emoji"></span> Ton revenu mensuel net</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></span>
+ <input type="text" id="revenu" placeholder="ex : 850" inputmode="decimal">
+ <span class="suffix-wrap">€/mois</span>
+ </div>
+ <p class="err-msg" id="err-revenu"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-revenu-txt"></span></p>
+ </div>
+
+ <div class="form-group" id="bloc-revenu-salarie" style="display:none">
+ <label for="revenu-alt"><span class="lbl-emoji"></span> Ton salaire mensuel net</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></span>
+ <input type="text" id="revenu-alt" placeholder="ex : 850" inputmode="decimal">
+ <span class="suffix-wrap">€/mois</span>
+ </div>
+ <p class="err-msg" id="err-revenu-alt"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-revenu-alt-txt"></span></p>
+ </div>
+
+ </div>
+
+ <hr class="divider">
+
+ <p class="section-label"><span class="sl-icon"></span> Étape 3 — Logement</p>
+ <div class="form-grid">
+
+ <div class="form-group">
+ <label for="logement"><span class="lbl-emoji"></span> Où habites-tu ?</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+ <select id="logement" onchange="toggleLogementFields()">
+ <option value="">Sélectionne…</option>
+ <option value="parents"> Chez mes parents</option>
+ <option value="crous"> Résidence étudiante (CROUS)</option>
+ <option value="loue"> Location privée</option>
+ <option value="coloc"> Colocation</option>
+ <option value="autre"> Autre</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-log"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-log-txt"></span></p>
+ </div>
+
+ <div class="form-group" id="bloc-loyer" style="display:none">
+ <label for="loyer"><span class="lbl-emoji"></span> Montant du loyer mensuel</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
+ <input type="text" id="loyer" placeholder="ex : 650" inputmode="decimal">
+ <span class="suffix-wrap">€/mois</span>
+ </div>
+ <p class="err-msg" id="err-loyer"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-loyer-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="ville-logement"><span class="lbl-emoji"></span> Ville de ton logement (+ code postal)</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+ <input type="text" id="ville-logement" placeholder="ex : Nanterre 92000">
+ </div>
+ <p class="err-msg" id="err-ville-logement"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-ville-logement-txt"></span></p>
+ </div>
+
+ </div>
+
+ <hr class="divider">
+
+ <p class="section-label"><span class="sl-icon"></span> Étape 4 — Mobilité</p>
+ <div class="form-grid">
+
+ <div class="form-group">
+ <label for="distance"><span class="lbl-emoji"></span> Distance domicile → études</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+ <select id="distance">
+ <option value="">Sélectionne…</option>
+ <option value="moins10">Moins de 10 km</option>
+ <option value="10-50">10 – 50 km</option>
+ <option value="50-100">50 – 100 km</option>
+ <option value="plus100">Plus de 100 km</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-distance"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-distance-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="mobilite-int"><span class="lbl-emoji"></span> Mobilité internationale prévue ?</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+ <select id="mobilite-int">
+ <option value="">Sélectionne…</option>
+ <option value="erasmus"> Erasmus</option>
+ <option value="stage-etranger"> Stage à l'étranger</option>
+ <option value="non"> Non</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-mobilite-int"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-mobilite-int-txt"></span></p>
+ </div>
+
+ </div>
+
+ <hr class="divider">
+
+ <p class="section-label"><span class="sl-icon"></span> Étape 5 — Situation personnelle</p>
+ <div class="form-grid">
+
+ <div class="form-group">
+ <label for="handicap"><span class="lbl-emoji"></span> Situation de handicap reconnue ?</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></span>
+ <select id="handicap">
+ <option value="">Sélectionne…</option>
+ <option value="oui"> Oui (RQTH ou MDPH)</option>
+ <option value="non"> Non</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-handicap"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-handicap-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="isole"><span class="lbl-emoji"></span> Étudiant·e isolé·e (sans soutien familial) ?</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+ <select id="isole">
+ <option value="">Sélectionne…</option>
+ <option value="oui"> Oui</option>
+ <option value="non"> Non</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-isole"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-isole-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="salarie"><span class="lbl-emoji"></span> Étudiant·e salarié·e ?</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+ <select id="salarie" onchange="toggleSalarieFields()">
+ <option value="">Sélectionne…</option>
+ <option value="oui"> Oui</option>
+ <option value="non"> Non</option>
+ </select>
+ <svg class="sel-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </div>
+ <p class="err-msg" id="err-salarie"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-salarie-txt"></span></p>
+ </div>
+
+ <div class="form-group" id="bloc-heures" style="display:none">
+ <label for="heures-travail"><span class="lbl-emoji">⏱</span> Heures de travail / semaine</label>
+ <div class="input-wrap">
+ <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+ <input type="text" id="heures-travail" placeholder="ex : 15" inputmode="numeric">
+ <span class="suffix-wrap">h/sem</span>
+ </div>
+ <p class="err-msg" id="err-heures-travail"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="err-heures-travail-txt"></span></p>
+ </div>
+
+ <div class="form-group">
+ <label for="aides-percues"><span class="lbl-emoji"></span> Aides déjà perçues</label>
+ <div class="input-wrap" style="height:auto;padding:6px 0 6px 40px;">
+ <span class="input-icon" style="top:14px;transform:none;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+ <div style="display:flex;flex-direction:column;gap:6px;padding:4px 0;">
+ <label style="font-size:13px;font-weight:500;gap:8px;cursor:pointer;"><input type="checkbox" id="aide-bourse" style="width:auto;height:auto;padding:0;"> Bourse CROUS</label>
+ <label style="font-size:13px;font-weight:500;gap:8px;cursor:pointer;"><input type="checkbox" id="aide-apl" style="width:auto;height:auto;padding:0;"> APL</label>
+ <label style="font-size:13px;font-weight:500;gap:8px;cursor:pointer;"><input type="checkbox" id="aide-regionale" style="width:auto;height:auto;padding:0;"> Aide régionale</label>
+ <label style="font-size:13px;font-weight:500;gap:8px;cursor:pointer;"><input type="checkbox" id="aide-aucune" style="width:auto;height:auto;padding:0;" onchange="toggleAucune()"> Aucune pour l'instant</label>
+ </div>
+ </div>
+ </div>
+
+ </div>
+
+ <hr class="divider">
+
+ <button class="btn-cta" onclick="simuler()">
+ <span class="btn-emoji"></span>
+ Voir mes aides
+ </button>
+
+ <div id="results">
+ <hr class="divider">
+
+ <div class="score-row">
+ <span class="score-mascot" id="score-mascot"></span>
+ <div class="score-info">
+ <p class="score-title" id="results-title"></p>
+ <p class="score-sub" id="score-quip"></p>
+ </div>
+ <div class="score-badge">
+ <span class="score-count" id="score-count">0</span>
+ <span class="score-label">aides dispo</span>
+ </div>
+ </div>
+
+ <div class="aide-list" id="aide-list"></div>
+
+ <div class="disclaimer">
+ <span class="disclaimer-icon"></span>
+ <span>
+ Résultats donnés à titre indicatif —
+ Vérifie tes droits exacts sur <a href="https://mes-aides.gouv.fr/" target="_blank">mes-aides.gouv.fr</a> ou <a href="https://www.caf.fr" target="_blank">caf.fr</a>.
+ Pour les boursiers : dépose ton DSE avant le <strong>31 mai</strong> sur <a href="https://www.messervices.etudiant.gouv.fr" target="_blank">messervices.etudiant.gouv.fr</a>.
+ </span>
+ </div>
+ </div>
+
+</div>
+
+<div class="chips">
+ <span class="chip"><span class="chip-dot"></span>Données 2025–2026</span>
+ <span class="chip"><span class="chip-dot"></span>Université Paris Nanterre</span>
+ <span class="chip"><span class="chip-dot"></span>100% gratuit</span>
+</div>
+</main>
+
+<script>
+// LIENS 
+const LINKS={
+ crous:'https://www.messervices.etudiant.gouv.fr',
+ apl:'https://www.caf.fr/allocataires/droits-et-prestations/s-informer-sur-les-aides/logement/l-aide-personnalisee-au-logement-apl',
+ prime:'https://www.caf.fr/allocataires/droits-et-prestations/s-informer-sur-les-aides/solidarite-et-insertion/la-prime-d-activite',
+ css:'https://www.ameli.fr/assure/droits-demarches/difficultes-acces-droits-soins/complementaire-sante/complementaire-sante-solidaire',
+ merite:'https://www.service-public.fr/particuliers/vosdroits/F12214',
+ mobilite:'https://www.etudiant.gouv.fr/fr/bourses-erasmus-et-aide-la-mobilite-internationale-ami-67',
+ visale:'https://www.visale.fr',
+ mobili:'https://www.actionlogement.fr/le-dispositif-mobili-jeune',
+ permis:'https://www.service-public.fr/particuliers/vosdroits/F2829',
+ fnau:'https://www.etudiant.gouv.fr/fr/aides-financieres-diverses',
+ handicap_aid:'https://www.monparcourshandicap.gouv.fr/actualite/rentree-etudiante-2025-les-aides-financieres',
+ pass_culture:'https://pass.culture.fr',
+ // Aides régionales
+ idf_mob:'https://www.iledefrance.fr/aides-regionales',
+ idf_nav:'https://www.transilien.com/fr/page-moyen-de-transport/navigo',
+ na_mob:'https://www.nouvelle-aquitaine.fr/formation-education/etudiants',
+ na_log:'https://www.nouvelle-aquitaine.fr/formation-education/etudiants',
+ occ_mob:'https://www.laregion.fr/bourses-et-aides',
+ occ_log:'https://www.laregion.fr/bourses-et-aides',
+ ara_mob:'https://www.auvergnerhonealpes.fr/aide/1-bourse-formation-mobilite-etudiante',
+ ara_log:'https://www.auvergnerhonealpes.fr/aide/aide-au-logement-etudiant',
+ bretagne:'https://www.bretagne.bzh/aides-et-appels-a-projets/',
+ normandie:'https://www.normandie.fr/bourses-regionales',
+ paca:'https://www.maregionsud.fr/aides-et-appels-a-projets/',
+ hauts_france:'https://www.hautsdefrance.fr/aides-et-services/',
+ grand_est:'https://www.grandest.fr/aides-regionales/',
+ pdl:'https://www.paysdelaloire.fr/les-aides',
+ cvl:'https://www.centrevaldeloire.fr/nos-actions/formation-et-emploi',
+ bfc:'https://www.bourgognefranchecomte.fr/aides/',
+ cor:'https://www.collectivitedecorse.fr/actions/formation',
+ letudiant_aides:'https://www.letudiant.fr/lifestyle/aides-financieres/carte-les-aides-des-regions-pour-les-etudiants.html',
+};
+
+// CORRESPONDANCE CODE POSTAL → RÉGION 
+function getRegion(codePostal){
+ const cp=String(codePostal).substring(0,2);
+ const dept=parseInt(cp);
+ if([75,77,78,91,92,93,94,95].includes(dept)) return 'idf';
+ if([13,83,84,04,05,06].includes(dept)) return 'paca';
+ if([33,17,16,24,47,40,64,79,86,87].includes(dept)) return 'nouvelle-aquitaine';
+ if([31,32,09,11,12,30,34,46,48,65,66,81,82].includes(dept)) return 'occitanie';
+ if([69,01,03,07,15,26,38,42,43,63,73,74].includes(dept)) return 'auvergne-rhone-alpes';
+ if([35,22,29,56].includes(dept)) return 'bretagne';
+ if([14,27,50,61,76].includes(dept)) return 'normandie';
+ if([59,02,60,62,80].includes(dept)) return 'hauts-de-france';
+ if([67,68,10,51,52,54,55,57,67,68,88,08].includes(dept)) return 'grand-est';
+ if([44,49,53,72,85].includes(dept)) return 'pays-de-la-loire';
+ if([18,28,36,37,41,45].includes(dept)) return 'centre-val-de-loire';
+ if([21,25,39,58,70,71,89,90].includes(dept)) return 'bourgogne-franche-comte';
+ if(cp==='20'||dept===2||dept===20) return 'corse';
+ return 'autre';
+}
+
+function extractCP(texte){
+ const m=texte.match(/\b(\d{5})\b/);
+ return m?m[1]:null;
+}
+
+// MÉTADONNÉES AIDES 
+const AIDE_META={
+ crous: {emoji:''},
+ merite: {emoji:''},
+ apl: {emoji:''},
+ prime: {emoji:''},
+ css: {emoji:''},
+ visale: {emoji:''},
+ mobili: {emoji:''},
+ permis: {emoji:''},
+ mobilite: {emoji:''},
+ fnau: {emoji:''},
+ handicap_aid:{emoji:''},
+ pass_culture:{emoji:''},
+ regional: {emoji:''},
+};
+
+function $id(id){return document.getElementById(id);}
+
+// CHAMPS CONDITIONNELS 
+function toggleLogementFields(){
+ const log=$id('logement').value;
+ const avecLoyer=['loue','crous','coloc'];
+ $id('bloc-loyer').style.display=avecLoyer.includes(log)?'flex':'none';
+}
+function toggleFoyerFields(){
+ const foyer=$id('foyer').value;
+ const statut=$id('statut').value;
+ const isAlt=['alternant','apprenti'].includes(statut);
+ $id('bloc-revenu-perso').style.display=(!isAlt&&foyer==='non')?'flex':'none';
+}
+function toggleStatutFields(){
+ const statut=$id('statut').value;
+ const isAlt=['alternant','apprenti'].includes(statut);
+ $id('bloc-revenu-salarie').style.display=isAlt?'flex':'none';
+ $id('bloc-revenu-perso').style.display=(!isAlt&&$id('foyer').value==='non')?'flex':'none';
+}
+function toggleSalarieFields(){
+ $id('bloc-heures').style.display=$id('salarie').value==='oui'?'flex':'none';
+}
+function toggleAucune(){
+ const aucune=$id('aide-aucune').checked;
+ ['aide-bourse','aide-apl','aide-regionale'].forEach(id=>{
+ $id(id).disabled=aucune;
+ if(aucune)$id(id).checked=false;
+ });
+}
+
+// GESTION ERREURS 
+function setErr(id,msg){
+ const el=$id('err-'+id); if(!el)return;
+ const txt=$id('err-'+id+'-txt'); if(txt)txt.textContent=msg;
+ el.classList.add('show');
+ const inp=$id(id); if(inp)inp.classList.add('err');
+}
+function clrErr(id){
+ const el=$id('err-'+id); if(!el)return;
+ el.classList.remove('show');
+ const inp=$id(id); if(inp)inp.classList.remove('err');
+}
+
+// CONSTRUCTION CARTE 
+function buildCard(ok,name,amount,detail,quip,linkKey,emojiKey,score){
+ const meta=AIDE_META[emojiKey]||{emoji:''};
+ // score : 'vert' | 'orange' | 'rouge' | null
+ const scoreHTML=score?`<span class="score-pill score-${score}">${score==='vert'?' Très probable':score==='orange'?' Probable':' Peu probable'}</span>`:'';
+ const div=document.createElement('div');
+ div.className='aide-card '+(ok?'ok':'ko');
+ div.innerHTML=`
+ <div class="aide-avatar">${meta.emoji}</div>
+ <div class="aide-content">
+ <div class="aide-top">
+ <span class="aide-name">${name}</span>
+ ${amount?`<span class="aide-amount">${amount}</span>`:''}
+ </div>
+ ${scoreHTML}
+ <p class="aide-detail">${detail}</p>
+ ${quip?`<p class="aide-quip">${quip}</p>`:''}
+ ${linkKey?`<a class="aide-link" href="${LINKS[linkKey]||'#'}" target="_blank">${ok?'Faire ma demande →':'En savoir plus →'}</a>`:''}
+ </div>`;
+ return div;
+}
+
+// MOTEUR DE CALCUL 
+function calculer(d){
+ const list=[];
+ const {statut,age,nat,logement,mention,foyer,revenuFoyer,nbCharge,parentsTogether,
+ revenu,loyer,villeLogement,villeEtude,distance,mobiliteInt,handicap,isole,
+ salarie,heuresTravail,aideBourse,aideApl} = d;
+
+ const loue=['loue','crous','coloc'].includes(logement);
+ const hors_ue_nb=nat==='hors-ue-nb';
+ const isAlt=['alternant','apprenti'].includes(statut);
+ // Revenu effectif pour les calculs
+ const rev=revenu||0;
+ // Score revenu foyer : t1=très faible, t2=faible, t3=moyen, t4=élevé, t5=très élevé
+ const foyerScore={t1:1,t2:2,t3:3,t4:4,t5:5}[revenuFoyer]||3;
+ const cp=extractCP(villeLogement)||extractCP(villeEtude);
+ const region=cp?getRegion(cp):'autre';
+
+ // BOURSE CROUS 
+ if(!isAlt){
+ if(hors_ue_nb){
+ list.push({ok:false,name:'Bourse CROUS',amount:null,key:'crous',link:'crous',score:'rouge',
+ detail:'Réservée aux ressortissants français, UE, ou étrangers boursiers CROUS.',quip:'La réglementation impose cette restriction.'});
+ } else if(foyerScore<=2||(foyer==='non'&&rev<=500)){
+ list.push({ok:true,name:'Bourse CROUS — échelon élevé (5-7)',amount:'jusqu\'à 634 €/mois',key:'crous',link:'crous',score:'vert',
+ detail:'Revenu du foyer très faible. Dépose ton DSE avant le 31 mai sur messervices.etudiant.gouv.fr.',quip:'Le CROUS, ton meilleur pote financier.'});
+ } else if(foyerScore===3||(foyer==='non'&&rev<=900)){
+ list.push({ok:true,name:'Bourse CROUS — échelon intermédiaire (3-4)',amount:'~300–460 €/mois',key:'crous',link:'crous',score:'vert',
+ detail:'Montant indicatif selon tes points de charge (distance, fratrie…). Simule sur messervices.',quip:'Même un peu, c\'est mieux que rien.'});
+ } else if(foyerScore===4||(foyer==='non'&&rev<=1400)){
+ list.push({ok:true,name:'Bourse CROUS — échelon bas (0bis-2)',amount:'~145–300 €/mois',key:'crous',link:'crous',score:'orange',
+ detail:'Possible selon les points de charge. Dépose le DSE pour vérifier.',quip:'À tenter, on ne sait jamais !'});
+ } else {
+ list.push({ok:false,name:'Bourse CROUS',amount:null,key:'crous',link:'crous',score:'rouge',
+ detail:'Revenu du foyer probablement trop élevé. Les points de charge peuvent changer la donne.',quip:'Vérifie quand même via le DSE !'});
+ }
+ } else {
+ list.push({ok:false,name:'Bourse CROUS',amount:null,key:'crous',link:'crous',score:'rouge',
+ detail:'Non cumulable avec un contrat d\'alternance/apprentissage.',quip:'Tu as déjà un salaire, chanceux·se.'});
+ }
+
+ // AIDE AU MÉRITE 
+ if(!isAlt&&mention==='tb'){
+ list.push({ok:true,name:'Aide au mérite',amount:'900 €/an',key:'merite',link:'merite',score:'vert',
+ detail:'Pour les boursiers CROUS avec mention TB. Versée en 3 fois avec ta bourse.',quip:'La mention TB qui rapporte enfin de l\'argent.'});
+ }
+
+ // APL 
+ if(loue){
+ if(hors_ue_nb){
+ list.push({ok:false,name:'APL — Aide au Logement',amount:null,key:'apl',link:'apl',score:'rouge',
+ detail:'Conditions de résidence régulière requises. Contacte la CAF pour ton cas.',quip:''});
+ } else if(foyerScore<=3||(foyer==='non'&&rev<=1500)){
+ list.push({ok:true,name:'APL — Aide Personnalisée au Logement',amount:'variable',key:'apl',link:'apl',score:'vert',
+ detail:`Calculée selon ton loyer${loyer?' ('+loyer+' €/mois déclaré)':''}, ta zone et tes ressources. Simule sur caf.fr.`,quip:'L\'APL, le seul moment où la CAF est sympa.'});
+ } else {
+ list.push({ok:false,name:'APL — Aide au Logement',amount:null,key:'apl',link:'apl',score:'orange',
+ detail:'Revenu possiblement trop élevé — simule sur caf.fr, le calcul dépend aussi du loyer.',quip:''});
+ }
+ } else {
+ list.push({ok:false,name:'APL — Aide au Logement',amount:null,key:'apl',link:'apl',score:'rouge',
+ detail:'L\'APL nécessite de payer un loyer.',quip:'Chez tes parents, c\'est gratuit — mais tu rates l\'APL.'});
+ }
+
+ // PRIME D'ACTIVITÉ 
+ if(salarie==='oui'||isAlt){
+ const rMin=isAlt?800:500;
+ const rMax=isAlt?2200:1800;
+ if(rev>=rMin&&rev<=rMax){
+ list.push({ok:true,name:'Prime d\'activité',amount:'variable',key:'prime',link:'prime',score:'vert',
+ detail:'Tu travailles à côté ou en alternance ? Tu peux y avoir droit. Dépose sur caf.fr.',quip:'La récompense des courageux qui travaillent ET étudient.'});
+ } else {
+ list.push({ok:false,name:'Prime d\'activité',amount:null,key:'prime',link:'prime',score:'orange',
+ detail:rev<rMin?'Revenu insuffisant pour l\'instant.':'Salaire trop élevé pour cette aide.',quip:''});
+ }
+ }
+
+ // CSS 
+ if(!hors_ue_nb&&(foyerScore<=2||(foyer==='non'&&rev<=900))){
+ list.push({ok:true,name:'Complémentaire Santé Solidaire (CSS)',amount:'gratuite ou 1 €/mois',key:'css',link:'css',score:'vert',
+ detail:'Remplace la CMU-C. 0 reste à charge chez la plupart des médecins.',quip:'La mutuelle à 1€ — moins cher qu\'un café au restau U.'});
+ }
+
+ // VISALE 
+ if(age<30&&loue){
+ list.push({ok:true,name:'Garantie Visale — caution gratuite',amount:'gratuit',key:'visale',link:'visale',score:'vert',
+ detail:'Action Logement garantit ton loyer (jusqu\'à 800 €/mois en Île-de-France). Aucune condition de revenu.',quip:'Visale : le garant que tes parents auraient dû être.'});
+ }
+
+ // MOBILI-JEUNE 
+ if(isAlt&&loue&&rev<1900){
+ list.push({ok:true,name:'Mobili-Jeune — aide loyer alternant',amount:'jusqu\'à 100 €/mois',key:'mobili',link:'mobili',score:'vert',
+ detail:'Pour les alternants/apprentis de moins de 30 ans avec revenu < 120% du SMIC.',quip:'Parce que les loyers en IDF sont une blague (pas la bonne).'});
+ }
+
+ // AIDE PERMIS 
+ if(isAlt&&age<26){
+ list.push({ok:true,name:'Aide au permis de conduire',amount:'500 €',key:'permis',link:'permis',score:'vert',
+ detail:'500 € pour les alternants/apprentis de moins de 26 ans. Via ton CFA ou OPCO.',quip:'Peut-être enfin raccrocher le vélo CROUS rouillé.'});
+ }
+
+ // MOBILITÉ INTERNATIONALE 
+ if(['erasmus','stage-etranger'].includes(mobiliteInt)){
+ list.push({ok:true,name:`Aide à la mobilité internationale${mobiliteInt==='erasmus'?' (Erasmus+)':' (Stage)'}`,
+ amount:'400 €/mois',key:'mobilite',link:'mobilite',score:'vert',
+ detail:'Réservée aux boursiers CROUS. Cumul possible avec Erasmus+. Renseigne-toi au Bureau des Relations Internationales.',quip:'Partir étudier à l\'étranger ET être payé pour. Le rêve.'});
+ }
+
+ // FNAU 
+ list.push({ok:true,name:'Fonds d\'Aide d\'Urgence (FNAU)',amount:'ponctuel',key:'fnau',link:'fnau',score:'orange',
+ detail:'En cas de difficulté financière soudaine, le CROUS peut intervenir rapidement. Contacte le service social de Paris Nanterre.',quip:'Le filet de sécurité quand tout part à vau-l\'eau.'});
+
+ // HANDICAP 
+ if(handicap==='oui'){
+ list.push({ok:true,name:'Aides étudiants en situation de handicap',amount:'variable',key:'handicap_aid',link:'handicap_aid',score:'vert',
+ detail:'Aménagements d\'examens, bourses spécifiques (Handynamic, FNAU majoré), exonération CVEC. Contacte le service handicap de Paris Nanterre.',quip:'Des droits spécifiques souvent méconnus — fais-les valoir !'});
+ }
+
+ // ÉTUDIANT ISOLÉ 
+ if(isole==='oui'){
+ list.push({ok:true,name:'Aide spécifique annuelle (CROUS — étudiant isolé)',amount:'équivalent bourse',key:'fnau',link:'crous',score:'orange',
+ detail:'Si tu es en indépendance avérée sans soutien familial, le CROUS peut t\'attribuer une aide annuelle même sans bourse classique.',quip:'L\'isolation a des droits. Fais-les valoir.'});
+ }
+
+ // PASS CULTURE 
+ if(age<=25){
+ list.push({ok:true,name:'Pass Culture',amount:'300 €/an (18 ans) ou individuel',key:'pass_culture',link:'pass_culture',score:'vert',
+ detail:'300 € de crédit culturel à 18 ans, puis crédit individuel jusqu\'à 25 ans. Livres, concerts, cinéma, musées…',quip:'La culture à prix réduit pour les 18-25 ans.'});
+ }
+
+ // 
+ // AIDES RÉGIONALES 
+ // 
+
+ if(region==='idf'){
+ // Île-de-France
+ if(distance!=='moins10'){
+ list.push({ok:true,name:'Navigo Annuel — Tarif étudiant (IDF)',amount:'86,40 €/mois',key:'idf_nav',link:'idf_nav',score:'vert',
+ detail:'Le pass Navigo donne accès à tous les transports en Île-de-France. Tarif étudiant disponible.',quip:' Aide régionale Île-de-France'});
+ }
+ if(foyerScore<=3){
+ list.push({ok:true,name:'Bourse régionale IDF — aide complémentaire',amount:'variable',key:'idf_mob',link:'idf_mob',score:'orange',
+ detail:'La Région Île-de-France propose des aides complémentaires pour les étudiants boursiers. Renseigne-toi sur le site de la région.',quip:' Aide régionale Île-de-France'});
+ }
+ }
+
+ if(region==='nouvelle-aquitaine'){
+ if(distance==='50-100'||distance==='plus100'){
+ list.push({ok:true,name:'Aide à la mobilité étudiante — Nouvelle-Aquitaine',amount:'jusqu\'à 500 €',key:'na_mob',link:'na_mob',score:'vert',
+ detail:'La Région Nouvelle-Aquitaine aide les étudiants boursiers éloignés de leur établissement.',quip:' Aide régionale Nouvelle-Aquitaine'});
+ }
+ if(loue&&foyerScore<=3){
+ list.push({ok:true,name:'Aide au logement étudiant — Nouvelle-Aquitaine',amount:'variable',key:'na_log',link:'na_log',score:'orange',
+ detail:'Dispositif d\'aide au logement pour les étudiants boursiers en Nouvelle-Aquitaine.',quip:' Aide régionale Nouvelle-Aquitaine'});
+ }
+ }
+
+ if(region==='occitanie'){
+ list.push({ok:true,name:'Bourse régionale — Occitanie',amount:'variable',key:'occ_mob',link:'occ_mob',score:'orange',
+ detail:'La Région Occitanie propose des bourses de mobilité et d\'aide aux étudiants. Vérifie ton éligibilité sur le site de la région.',quip:' Aide régionale Occitanie'});
+ if(distance==='50-100'||distance==='plus100'){
+ list.push({ok:true,name:'Aide transport étudiant — Occitanie',amount:'variable',key:'occ_log',link:'occ_log',score:'orange',
+ detail:'Aide aux frais de transport pour les étudiants boursiers parcourant de longues distances.',quip:' Aide régionale Occitanie'});
+ }
+ }
+
+ if(region==='auvergne-rhone-alpes'){
+ if(foyerScore<=3){
+ list.push({ok:true,name:'Bourse de formation / mobilité — Auvergne-Rhône-Alpes',amount:'variable',key:'ara_mob',link:'ara_mob',score:'orange',
+ detail:'Aides à la formation et à la mobilité pour les étudiants boursiers de la région.',quip:' Aide régionale Auvergne-Rhône-Alpes'});
+ }
+ if(loue){
+ list.push({ok:true,name:'Aide au logement étudiant — AuRA',amount:'variable',key:'ara_log',link:'ara_log',score:'orange',
+ detail:'Dispositif d\'aide au logement pour les étudiants d\'Auvergne-Rhône-Alpes.',quip:' Aide régionale Auvergne-Rhône-Alpes'});
+ }
+ }
+
+ if(region==='bretagne'){
+ list.push({ok:true,name:'Aide aux étudiants — Bretagne',amount:'variable',key:'bretagne',link:'bretagne',score:'orange',
+ detail:'La Région Bretagne propose plusieurs aides pour les étudiants (mobilité, logement, permis). Consulte le site de la région.',quip:' Aide régionale Bretagne'});
+ }
+
+ if(region==='normandie'){
+ list.push({ok:true,name:'Bourse régionale — Normandie',amount:'variable',key:'normandie',link:'normandie',score:'orange',
+ detail:'La Région Normandie attribue des bourses complémentaires aux étudiants boursiers pour financer les études et la mobilité.',quip:' Aide régionale Normandie'});
+ }
+
+ if(region==='paca'){
+ list.push({ok:true,name:'Aide régionale — Région Sud (PACA)',amount:'variable',key:'paca',link:'paca',score:'orange',
+ detail:'Aides pour la mobilité et le logement étudiant en région Provence-Alpes-Côte d\'Azur.',quip:' Aide régionale PACA'});
+ }
+
+ if(region==='hauts-de-france'){
+ list.push({ok:true,name:'Aide aux étudiants — Hauts-de-France',amount:'variable',key:'hauts_france',link:'hauts_france',score:'orange',
+ detail:'Bourses et aides à la mobilité pour les étudiants des Hauts-de-France. Vérifie sur le site de la région.',quip:' Aide régionale Hauts-de-France'});
+ }
+
+ if(region==='grand-est'){
+ list.push({ok:true,name:'Aide régionale — Grand Est',amount:'variable',key:'grand_est',link:'grand_est',score:'orange',
+ detail:'Aides à la mobilité et au logement pour les étudiants du Grand Est.',quip:' Aide régionale Grand Est'});
+ }
+
+ if(region==='pays-de-la-loire'){
+ list.push({ok:true,name:'Aide aux étudiants — Pays de la Loire',amount:'variable',key:'pdl',link:'pdl',score:'orange',
+ detail:'La Région Pays de la Loire propose diverses aides pour les étudiants boursiers.',quip:' Aide régionale Pays de la Loire'});
+ }
+
+ if(region==='centre-val-de-loire'){
+ list.push({ok:true,name:'Aide régionale — Centre-Val de Loire',amount:'variable',key:'cvl',link:'cvl',score:'orange',
+ detail:'Aides à la formation et à la mobilité pour les étudiants de la région Centre-Val de Loire.',quip:' Aide régionale Centre-Val de Loire'});
+ }
+
+ if(region==='bourgogne-franche-comte'){
+ list.push({ok:true,name:'Aide régionale — Bourgogne-Franche-Comté',amount:'variable',key:'bfc',link:'bfc',score:'orange',
+ detail:'Bourses et aides au logement pour les étudiants de Bourgogne-Franche-Comté.',quip:' Aide régionale Bourgogne-Franche-Comté'});
+ }
+
+ if(region==='corse'){
+ list.push({ok:true,name:'Aide régionale — Collectivité de Corse',amount:'variable',key:'cor',link:'cor',score:'orange',
+ detail:'La Collectivité de Corse propose des aides spécifiques pour les étudiants corses.',quip:' Aide régionale Corse'});
+ }
+
+ // Si région détectée mais non spécifique, pointer vers letudiant.fr
+ if(region==='autre'&&(villeLogement||villeEtude)){
+ list.push({ok:true,name:'Aides régionales — Vérifier selon ta région',amount:'variable',key:'letudiant_aides',link:'letudiant_aides',score:'orange',
+ detail:'Chaque région propose des aides différentes. Consulte la carte interactive des aides régionales pour étudiant.',quip:' Aides régionales'});
+ }
+
+ return list;
+}
+
+// SIMULATION 
+function simuler(){
+ // Clear all errors
+ ['age','nat','statut','niveau','mention','ville-etude',
+ 'foyer','revenu-foyer','nb-charge','parents-ensemble','revenu','revenu-alt',
+ 'logement','loyer','ville-logement','distance','mobilite-int',
+ 'handicap','isole','salarie'].forEach(id=>{try{clrErr(id);}catch(e){}});
+
+ // Lecture des valeurs
+ const ageRaw=($id('age')||{}).value?.trim()||'';
+ const nat=($id('nationalite')||{}).value||'';
+ const statut=($id('statut')||{}).value||'';
+ const niveau=($id('niveau')||{}).value||'';
+ const mention=($id('mention')||{}).value||'';
+ const villeEtude=($id('ville-etude')||{}).value?.trim()||'';
+ const foyer=($id('foyer')||{}).value||'';
+ const revenuFoyer=($id('revenu-foyer')||{}).value||'';
+ const nbChargeRaw=($id('nb-charge')||{}).value?.trim()||'';
+ const parentsTogether=($id('parents-ensemble')||{}).value||'';
+ const logement=($id('logement')||{}).value||'';
+ const villeLogement=($id('ville-logement')||{}).value?.trim()||'';
+ const loyerRaw=($id('loyer')||{}).value?.trim()||'';
+ const distance=($id('distance')||{}).value||'';
+ const mobiliteInt=($id('mobilite-int')||{}).value||'';
+ const handicap=($id('handicap')||{}).value||'';
+ const isole=($id('isole')||{}).value||'';
+ const salarie=($id('salarie')||{}).value||'';
+ const heuresTravailRaw=($id('heures-travail')||{}).value?.trim()||'';
+ const aideBourse=($id('aide-bourse')||{}).checked||false;
+ const aideApl=($id('aide-apl')||{}).checked||false;
+ const isAlt=['alternant','apprenti'].includes(statut);
+
+ // Revenu: différent selon statut/foyer
+ let revenuRaw='';
+ if(isAlt) revenuRaw=($id('revenu-alt')||{}).value?.trim()||'';
+ else if(foyer==='non') revenuRaw=($id('revenu')||{}).value?.trim()||'';
+
+ let valid=true,age=0,revenu=0,loyer=0,nbCharge=1;
+
+ if(!ageRaw){setErr('age','Ce champ est obligatoire.');valid=false;}
+ else{age=parseInt(ageRaw);if(isNaN(age)||age<16||age>50){setErr('age','Entre 16 et 50 ans.');valid=false;}}
+
+ if(!nat){setErr('nat','Sélectionne ta nationalité.');valid=false;}
+ if(!statut){setErr('statut','Sélectionne ton statut.');valid=false;}
+ if(!niveau){setErr('niveau','Sélectionne ton niveau d\'études.');valid=false;}
+ if(!villeEtude){setErr('ville-etude','Indique ta ville d\'études.');valid=false;}
+ if(!foyer){setErr('foyer','Ce champ est obligatoire.');valid=false;}
+ if(!revenuFoyer){setErr('revenu-foyer','Sélectionne une tranche de revenu.');valid=false;}
+ if(!nbChargeRaw){setErr('nb-charge','Indique le nombre de personnes dans le foyer.');valid=false;}
+ else{nbCharge=parseInt(nbChargeRaw);if(isNaN(nbCharge)||nbCharge<1){setErr('nb-charge','Valeur invalide.');valid=false;}}
+ if(!logement){setErr('log','Où tu dors, c\'est important pour les aides.');valid=false;}
+ if(!distance){setErr('distance','Sélectionne une distance.');valid=false;}
+ if(!mobiliteInt){setErr('mobilite-int','Indique si tu prévois une mobilité internationale.');valid=false;}
+ if(!handicap){setErr('handicap','Ce champ est obligatoire.');valid=false;}
+ if(!isole){setErr('isole','Ce champ est obligatoire.');valid=false;}
+
+ // Revenu perso : obligatoire si alternant ou fiscalement indépendant
+ if(isAlt){
+ if(!revenuRaw){setErr('revenu-alt','Indique ton salaire mensuel net.');valid=false;}
+ else{revenu=parseFloat(revenuRaw.replace(',','.'));if(isNaN(revenu)||revenu<0){setErr('revenu-alt','Montant invalide.');valid=false;}}
+ } else if(foyer==='non'){
+ if(!revenuRaw){setErr('revenu','Indique ton revenu mensuel net.');valid=false;}
+ else{revenu=parseFloat(revenuRaw.replace(',','.'));if(isNaN(revenu)||revenu<0){setErr('revenu','Montant invalide.');valid=false;}}
+ }
+
+ // Loyer si applicable
+ const loue=['loue','crous','coloc'].includes(logement);
+ if(loue&&loyerRaw){loyer=parseFloat(loyerRaw.replace(',','.'));if(isNaN(loyer))loyer=0;}
+
+ if(!valid){$id('results').classList.remove('show');return;}
+
+ const aides=calculer({statut,age,nat,logement,mention,foyer,revenuFoyer,nbCharge,
+ parentsTogether,revenu,loyer,villeLogement,villeEtude,distance,mobiliteInt,
+ handicap,isole,salarie,heuresTravail:parseInt(heuresTravailRaw)||0,
+ aideBourse,aideApl});
+
+ const list=$id('aide-list');
+ list.innerHTML='';
+ const okCount=aides.filter(a=>a.ok).length;
+ aides.forEach((a,i)=>{
+ const card=buildCard(a.ok,a.name,a.amount,a.detail,a.quip,a.link,a.key,a.score);
+ card.style.animationDelay=(i*55)+'ms';
+ list.appendChild(card);
+ });
+
+ const labels={etudiant:'Étudiant·e',alternant:'Alternant·e',apprenti:'Apprenti·e'};
+ $id('results-title').textContent=`${labels[statut]||statut} · ${age} ans · ${villeEtude}`;
+ $id('score-count').textContent=okCount;
+ const quips=['Ton compte en banque va un peu mieux respirer ','Quelqu\'un a fait les calculs pour toi. Ce quelqu\'un c\'est moi.'];
+ $id('score-quip').textContent=quips[Math.floor(Math.random()*quips.length)];
+ $id('score-mascot').textContent=okCount>=5?'':okCount>=3?'':'';
+ $id('results').classList.add('show');
+ $id('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>
